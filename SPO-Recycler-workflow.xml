@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow_WorkflowDefinition apiMode="0" config="&lt;configuration />"
+    description="" executeOnWeb="0"
+    inputs="&lt;inputs>&lt;url class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/url>&lt;username class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/username>&lt;password class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/password>&lt;/inputs>"
+    interactive="0" isHtmlDescription="0" manualPercentageComplete="0"
+    name="SPO-Recycler" outputs="&lt;outputs />"
+    revision="$Revision:  $" tags=""
+    uniqueGuid="03c91084-7e34-45c4-a1ef-b19c289e0e1c"
+    variables="&lt;variables />" webHidden="0" workflowId="0">
+    <schema>
+        <outputs className="" name="outputs" type=""/>
+        <variables className="" name="variables" type=""/>
+        <inputs attribute="0" className="" name="inputs" type="">
+            <children attribute="0" className="java.lang.String"
+                controlHidden="0" controlType="0" defaultValue=""
+                displayName="" documentation="" hidden="0"
+                inputType="java.lang.String" listType="0"
+                maximumValue="" minimumValue="" name="url" readOnly="0"
+                required="0" searchable="0" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            <children attribute="0" className="java.lang.String"
+                controlHidden="0" controlType="0" defaultValue=""
+                displayName="" documentation="" hidden="0"
+                inputType="java.lang.String" listType="0"
+                maximumValue="" minimumValue="" name="username"
+                readOnly="0" required="0" searchable="0" type="{http://www.w3.org/2001/XMLSchema}string"/>
+            <children attribute="0" className="java.lang.String"
+                controlHidden="0" controlType="0" defaultValue=""
+                displayName="" documentation="" hidden="0"
+                inputType="java.lang.String" listType="0"
+                maximumValue="" minimumValue="" name="password"
+                readOnly="0" required="0" searchable="0" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        </inputs>
+        <config className="" name="configuration" type=""/>
+    </schema>
+    <Start commented="0" continueOnFailure="0" created="0"
+        description="" displayName="Start" height="36" interactive="0"
+        jobMode="0" name="Start" originalStyle="" skipAttempt="0"
+        style="image;image=/images/jgraphx/house.png"
+        uniqueName="Start_1" waitSetting="0" width="55" x="45" y="41">
+        <inputs val="&lt;inputs />"/>
+        <transition activity="ExecuteScript_1" commented="0"
+            originalStyle="" status="0" style="defaultEdge"
+            transitionIndex="0" x="0" y="0">
+            <condition script="/*&#xa;The expression should return a boolean. Use the variable name &quot;activity&quot; to refer to the previous activity object. Example:&#xa;activity.exitCode==0;&#xa;*/&#xa;"/>
+        </transition>
+    </Start>
+    <Activity commented="0" continueOnFailure="0"
+        created="1604600607102"
+        description="Execute a script on a remote machine"
+        displayName="ExecuteScript" height="34" interactive="0"
+        jobMode="0" name="ExecuteScript"
+        namespaceUri="commvault.cte.workflow.activities"
+        originalStyle="" skipAttempt="0"
+        style="label;image=commvault.cte.workflow.activities.ExecuteScript"
+        uniqueName="ExecuteScript_1" waitSetting="0" width="110" x="290" y="120">
+        <inputs val="&lt;inputs>&lt;client class=&quot;commvault.msgs.CvEntities.ClientEntity&quot; _list_=&quot;false&quot;>&lt;clientName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/clientName>&lt;clientId class=&quot;java.lang.Integer&quot; _list_=&quot;false&quot;>&lt;/clientId>&lt;clientName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/clientName>&lt;hostName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/hostName>&lt;clientGUID class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/clientGUID>&lt;displayName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/displayName>&lt;commCellName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/commCellName>&lt;csGUID class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/csGUID>&lt;type class=&quot;commvault.msgs.CvEntities.CommCellType&quot; _list_=&quot;false&quot;>&lt;/type>&lt;flags class=&quot;commvault.msgs.CvEntities.EntityFlags&quot; _list_=&quot;false&quot;>&lt;/flags>&lt;GUID class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/GUID>&lt;newName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/newName>&lt;/client>&lt;impersonateUserName class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/impersonateUserName>&lt;impersonateUserPassword class=&quot;workflow.types.EncryptedString&quot; _list_=&quot;false&quot;>&lt;/impersonateUserPassword>&lt;startUpPath class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/startUpPath>&lt;scriptType class=&quot;commvault.msgs.App.ScriptType&quot; _list_=&quot;false&quot;>PowerShell&lt;/scriptType>&lt;script class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>param(&amp;#xD;&#xd;&#xa;    [string]$url = &quot;xpath:{/workflow/inputs/url}&quot;,&amp;#xD;&#xd;&#xa;    [string]$username = &quot;xpath:{/workflow/inputs/username}&quot;,&amp;#xD;&#xd;&#xa;    [string]$password = &quot;xpath:{/workflow/inputs/password}&quot;&amp;#xD;&#xd;&#xa;)&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;#Load SharePoint Online Assemblies&amp;#xD;&#xd;&#xa;Add-Type -Path &quot;C:\Program Files\Common Files\microsoft shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Client.dll&quot;&amp;#xD;&#xd;&#xa;Add-Type -Path &quot;C:\Program Files\Common Files\microsoft shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Client.Runtime.dll&quot;&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;if ($url -eq &quot;&quot;) {&amp;#xD;&#xd;&#xa;    $url = Read-Host &quot;Enter SharePoint site url&quot;&amp;#xD;&#xd;&#xa;}&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;if ($username -eq &quot;&quot;) {&amp;#xD;&#xd;&#xa;    $username = Read-Host &quot;Enter Username&quot;&amp;#xD;&#xd;&#xa;}&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;if ($password -eq &quot;&quot;) {&amp;#xD;&#xd;&#xa;    $secure_password = Read-host -AsSecureString &quot;Enter Password for $username&quot;&amp;#xD;&#xd;&#xa;} else {&amp;#xD;&#xd;&#xa;    $secure_password = ConvertTo-SecureString -String $password -AsPlainText -Force&amp;#xD;&#xd;&#xa;}&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;$Credentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredentials($username, $secure_password)&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;Try {&amp;#xD;&#xd;&#xa;    #Setup the context&amp;#xD;&#xd;&#xa;    $Context = New-Object Microsoft.SharePoint.Client.ClientContext($url)&amp;#xD;&#xd;&#xa;    $Context.Credentials = $Credentials&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;    #Get the recycle bin&amp;#xD;&#xd;&#xa;    $Site = $Context.Site&amp;#xD;&#xd;&#xa;    $RecycleBinItems = $Site.RecycleBin&amp;#xD;&#xd;&#xa;    $Context.Load($Site)&amp;#xD;&#xd;&#xa;    $Context.Load($RecycleBinItems)&amp;#xD;&#xd;&#xa;    $Context.ExecuteQuery()&amp;#xD;&#xd;&#xa;&amp;#xD;&#xd;&#xa;    Write-Host &quot;Total Number of Items found Recycle Bin:&quot; $RecycleBinItems.Count&amp;#xD;&#xd;&#xa;    if ($RecycleBinItems.Count -gt 0) {&amp;#xD;&#xd;&#xa;        $RecycleBinItems.DeleteAll()&amp;#xD;&#xd;&#xa;        $Context.ExecuteQuery()&amp;#xD;&#xd;&#xa;        Write-Host &quot;All items deleted&quot;&amp;#xD;&#xd;&#xa;    } else {&amp;#xD;&#xd;&#xa;        Write-Host &quot;No items to delete&quot;&amp;#xD;&#xd;&#xa;    }&amp;#xD;&#xd;&#xa;} catch {&amp;#xD;&#xd;&#xa;    write-host &quot;Error: $($_.Exception.Message)&quot; -foregroundcolor Red&amp;#xD;&#xd;&#xa;}&lt;/script>&lt;arguments class=&quot;java.lang.String&quot; _list_=&quot;false&quot;>&lt;/arguments>&lt;waitForProcessCompletion class=&quot;java.lang.Boolean&quot; _list_=&quot;false&quot;>true&lt;/waitForProcessCompletion>&lt;/inputs>"/>
+    </Activity>
+    <formProperties css="" formVersion="0" javaScript="" pageMode="0"/>
+</Workflow_WorkflowDefinition>
